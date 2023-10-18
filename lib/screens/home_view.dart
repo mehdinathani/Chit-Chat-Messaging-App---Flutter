@@ -37,22 +37,23 @@ class _HomeViewState extends State<HomeView> {
   // build a list of users except the current logged user
   Widget _buildUsersList() {
     return StreamBuilder<QuerySnapshot>(
-        stream: FirebaseFirestore.instance.collection("users").snapshots(),
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return const Text("error");
-          }
+      stream: FirebaseFirestore.instance.collection("user").snapshots(),
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return const Text("error");
+        }
 
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Text("Loading");
-          }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Text("Loading");
+        }
 
-          return ListView(
-            children: snapshot.data!.docs
-                .map<Widget>((doc) => _buildUsersListItem(doc))
-                .toList(),
-          );
-        });
+        return ListView(
+          children: snapshot.data!.docs
+              .map<Widget>((doc) => _buildUsersListItem(doc))
+              .toList(),
+        );
+      },
+    );
   }
 
   Widget _buildUsersListItem(DocumentSnapshot document) {
@@ -61,7 +62,7 @@ class _HomeViewState extends State<HomeView> {
     // display all users data except current user
     if (_auth.currentUser!.email != data['email']) {
       return ListTile(
-        title: data['email'],
+        title: Text(data['email'].toString()),
         onTap: () {
           // pass the clicked user's uid to the chat page.
           Navigator.push(
