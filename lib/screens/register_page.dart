@@ -1,6 +1,6 @@
 import 'package:chitchatappbymehdinathani/components/custom_elevatedButon.dart';
 import 'package:chitchatappbymehdinathani/components/custom_textfield.dart';
-import 'package:chitchatappbymehdinathani/services/auth_service.dart';
+import 'package:chitchatappbymehdinathani/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -1,5 +1,5 @@
 import 'package:chitchatappbymehdinathani/screens/home_view.dart';
-import 'package:chitchatappbymehdinathani/services/login_or_register.dart';
+import 'package:chitchatappbymehdinathani/services/auth/login_or_register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
